@@ -43,14 +43,12 @@ fn compute_grid(
         size: size(100., 50.),
         grid_row: line(1, 2),
         grid_column: line(1, 1),
-        justify_self: Some(AlignItems::Start),
         ..Default::default()
     })?;
     let top_right = taffy.new_leaf(Style {
         size: size(40., 30.),
         grid_row: line(1, 1),
         grid_column: line(2, 2),
-        justify_self: Some(AlignItems::Start),
         ..Default::default()
     })?;
 
@@ -58,9 +56,8 @@ fn compute_grid(
     if with_bottom_component {
         let bottom_span_two = taffy.new_leaf(Style {
             size: size(120., 20.),
-            grid_row: line(2, 1),
+            grid_row: line(3, 1),
             grid_column: line(1, 2),
-            justify_self: Some(AlignItems::Start),
             ..Default::default()
         })?;
         children.push(bottom_span_two);
@@ -68,10 +65,10 @@ fn compute_grid(
 
     let grid_style = Style {
         display: Display::Grid,
-        size: size(360.0, 640.0),
+        size: size(320.0, 640.0),
         justify_content: Some(JustifyContent::Start),
         justify_items: Some(AlignItems::Start),
-        grid_template_columns: vec![auto(), auto(), auto(), fr(1.)],
+        grid_template_columns: vec![auto(), auto(), fr(1.)],
         grid_template_rows: vec![auto(), auto(), auto(), fr(1.)],
         ..Default::default()
     };
